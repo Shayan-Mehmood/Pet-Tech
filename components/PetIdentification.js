@@ -1,25 +1,21 @@
-// PetIdentification.js
 import React from "react";
-import { View, Text, Image, StyleSheet, Pressable } from "react-native";
-import newLogin from "../assets/new_login.png";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 function PetIdentification({ onCatModel, onDogModel }) {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={newLogin} style={styles.image} />
-      </View>
+      <View style={styles.header}></View>
       <View style={styles.contentContainer}>
         <Text style={styles.title}>Identify Your Pet</Text>
 
         <Text style={styles.contentText}>
-          Welcome to the Pet Identification tool. Follow these steps to identify your pet:
+          Follow these steps to identify your pet:
         </Text>
         <Text style={styles.contentText}>
           1. Select the model (Cat or Dog) you want to use.
         </Text>
         <Text style={styles.contentText}>
-          2. Choose to upload an image or capture a photo of your pet.
+          2. Choose to upload an image of your pet.
         </Text>
         <Text style={styles.contentText}>
           3. Get results, breed Identification and more pet recommendations.
@@ -55,11 +51,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     marginBottom: 10,
   },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
   contentContainer: {
     width: "80%",
     marginBottom: 20,
@@ -68,6 +59,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     marginBottom: 10,
+    textAlign: "justify",
   },
   optionsContainer: {
     flexDirection: "row",

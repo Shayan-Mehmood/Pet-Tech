@@ -27,7 +27,7 @@ function AppNavigator() {
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="PetIdentification" component={PetIdentification} />
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="CatBreedIdentifier" component={CatBreedIdentifier} options={{ headerShown: false }} />
+        <Stack.Screen name="CatBreedIdentifier" component={CatBreedIdentifier} />
 
       </Stack.Navigator>
     </NavigationContainer>

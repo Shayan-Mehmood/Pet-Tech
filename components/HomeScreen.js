@@ -1,4 +1,3 @@
-// HomeScreen.js
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable, Image, Dimensions } from "react-native";
 import { auth } from "./firebaseConfig";
@@ -6,6 +5,14 @@ import PetIdentification from "./PetIdentification";
 import newLogin from "../assets/new_login.png";
 
 function HomeScreen({ navigation }) {
+  const MoveToCatModel = () => {
+    navigation.navigate('CatBreedIdentifier');
+  };
+
+  const MoveToDogModel = () => {
+    navigation.navigate('CatBreedIdentifier');
+  };
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -34,9 +41,6 @@ function HomeScreen({ navigation }) {
       });
   };
 
-  const MovetoImagepicker = ()=>{
-    navigation.navigate('ImagePicker')
-  }
   return (
     <View style={styles.container}>
       <Image source={newLogin} style={styles.backgroundImage} />
@@ -52,20 +56,18 @@ function HomeScreen({ navigation }) {
           </Text>
         )}
 
-        <PetIdentification />
+        <PetIdentification onCatModel={MoveToCatModel} onDogModel={MoveToDogModel} />
 
         {user && (
           <Pressable style={styles.logoutButton} onPress={handleLogout}>
             <Text style={styles.buttonText}>Log Out</Text>
           </Pressable>
         )}
-        <Pressable style={styles.logoutButton} onPress={MovetoImagepicker}>
-            <Text style={styles.buttonText}>ImagePicker</Text>
-          </Pressable>
       </View>
     </View>
   );
 }
+
 const { height, width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
@@ -81,21 +83,21 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
     padding: 20,
-    width: width > 600 ? "60%" : "80%", // Adjusted width for larger screens
+    width: width > 600 ? "60%" : "80%",
     alignItems: "center",
     borderRadius: 10,
   },
   title: {
-    fontSize: width > 600 ? 48 : 32, // Adjusted font size for larger screens
+    fontSize: width > 600 ? 32 : 24,
     fontWeight: "bold",
     color: "#fff",
     marginBottom: height > 600 ? 20 : 10,
     marginTop: 20,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
     color: "#fff",
     marginBottom: 20,
     textAlign: "center",
